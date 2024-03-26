@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="title" content="Adrian Mülthaler">
+    <meta name="description" content="Eine persönliche Seite von und über Adrian Mülthaler.">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{% static 'img/web_logo.png' %}">
+</head>
+
+<body>
+
+<div class="bg bg-0">
+    {% block universe %}{% endblock %}
+</div>
+
+{% block content %}
+{% endblock %}
+
+<div class="content footer">
+    <div class="footer-item github">
+        <!-- https://lab.lepture.com/github-cards/#nairdanus|medium -->
+        <h4 style="width: 300px">Github:</h4>
+        <div class="github-card"
+             data-github="nairdanus"
+             data-theme="default"
+             data-target="blank"></div>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    </div>
+</div>
+</body>
+</html>
