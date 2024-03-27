@@ -79,10 +79,14 @@ html, body {
     }
 }
 
-.captcha {
+.captcha-wrapper {
     border-color: white;
     border-width: 2px;
     border-style: dashed;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 
