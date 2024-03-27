@@ -1,7 +1,8 @@
 html, body {
-            height: 100%;
-            margin: 0;
-        }
+    height: 100%;
+    margin: 0;
+}
+
 .content {
     width: 100%;
     position: relative;
@@ -73,12 +74,13 @@ html, body {
 .interest_list{
     width: 100%;
 }
-.interest_list ul{
+.interest_list > ul {
     margin: auto;
     text-align: left;
     width: 25%;
     @media screen and (max-width: 800px) {
-        width: 100%;
+        padding: 0 0 0 10%;
+        width: 80%;
     }
 }
 
