@@ -55,14 +55,6 @@ html, body {
     padding: 0.5em 1em;
     background-color: rgba(134, 134, 134, 0.74);
 }
-.lmu-logo {
-    width: 100%;
-    padding-top: 10px;
-}
-.lmu-logo img {
-    width: 150px;
-    margin: auto;
-}
 
 .interest_list{
     width: 100%;
@@ -71,7 +63,28 @@ html, body {
     margin: auto;
     text-align: left;
     width: 25%;
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
 }
+
+.captcha-form {
+    color: white;
+    width: 35%;
+    margin: auto;
+    transform: scale(1.5);
+    @media screen and (max-width: 800px) {
+        width: 90%;
+        transform: scale(1);
+    }
+}
+
+.captcha {
+    border-color: white;
+    border-width: 2px;
+    border-style: dashed;
+}
+
 
 .iframe {
     width: 40%;
@@ -87,9 +100,6 @@ html, body {
     justify-content: space-evenly;
 }
 
-.footer-item {
-    transform: scale(0.9);
-}
 
 a {
     color: inherit;

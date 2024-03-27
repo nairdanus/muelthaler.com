@@ -1,18 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="de-de">
-<head>
-    <meta charset="UTF-8">
-    <title>Forbidden</title>
-    <link rel="icon" href="{% static 'img/web_logo.png' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-<div class="bg bg-1">
+{% extends "master.html" %}
+
+{% block title %}403!{% endblock %}
+
+{% block universe %}
     <div class="name">
         <span>Das darfst Du nicht!<br>
         <a href="/">Zurück</a></span>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}
