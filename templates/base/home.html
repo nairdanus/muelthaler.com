@@ -1,6 +1,7 @@
 {% extends "master.html" %}
 {% load static %}
 
+
 {% block title %}Adrian Mülthaler{% endblock %}
 
 {% block universe %}
@@ -13,19 +14,24 @@
 
 
 <div class="content">
-    <p>Hallo. Ich bin Adrian. Ich studiere Computerlinguistik und Informatik an der LMU in München.</p>
-    <div class="lmu-logo">
-        <a href="https://www.lmu.de" target="_blank">
-            <img src="{% static 'img/lmu_logo.png' %}" alt="LMU-Logo" title="Besuche die LMU Home Page">
-        </a>
-    </div>
+    <p>
+        {{ personal_description|linebreaks }}
+    </p>
 </div>
 
 <div class="bg bg-{{ bg1 }}">
 </div>
 
 <div class="content">
-    <p><b>Diese Seite hat gerade keinen Nutzen!</b></p>
+    <p><b>{{ interest_title|linebreaks }}</b></p>
+    <br>
+    <div class="interest_list">
+        <ul>
+            {% for i in interests %}
+            <li>{{ i }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
 <div class="bg bg-{{ bg2 }}">
@@ -33,7 +39,9 @@
 
 <div class="content">
     <p>
-        <b><a href="/contact/">Kontaktieren Sie mich</a></b>
+        <b><a href="/contact/">
+            {{ contact_text }}
+        </a></b>
     </p>
 </div>
 

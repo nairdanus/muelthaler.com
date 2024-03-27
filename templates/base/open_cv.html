@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}Get my CV{% endblock %}
+
+{% block universe %}
+    <div class="name">
+    <h1 style="color: white; margin: 50px">See my CV</h1>
+        <form style="color: white; width: 35%; margin: auto; transform: scale(1.5)" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button style="background-color: antiquewhite; border: none; margin: 10px;" type="submit">See my CV</button>
+        </form>
+    </div>
+{% endblock %}
