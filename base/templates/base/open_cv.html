@@ -8,7 +8,7 @@
     <h1 style="color: white; margin: 50px">See my CV</h1>
         <form class="captcha-form" method="post">
             {% csrf_token %}
-            <div class="captcha">{{ form }}</div>
+            <div class="captcha-wrapper">{{ form }}</div>
             <br/>
             <button style="background-color: antiquewhite; border: none; margin: 10px;" type="submit">See my CV</button>
         </form>
