@@ -17,17 +17,20 @@ html, body {
     margin: 0 2rem;
 }
 
-.contact-wrapper > p > b {
+.contact-wrapper > div {
     transition: 1s;
+    margin: 10px auto;
+    width: fit-content;
     :hover {
-        color: white;
+        color: white!important;
     }
 }
-.contact-wrapper:hover > p > b {
+.contact-wrapper:hover > div {
     background-color: #2b574b;
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
     padding: 10px;
+    margin: 0 auto 0 auto;
 }
 
 .bg {
