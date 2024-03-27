@@ -15,6 +15,20 @@ html, body {
 .content p {
     margin: 0 2rem;
 }
+
+.contact-wrapper > p > b {
+    transition: 1s;
+    :hover {
+        color: white;
+    }
+}
+.contact-wrapper:hover > p > b {
+    background-color: #2b574b;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+
 .bg {
     height: 100%;
     background-attachment: fixed;
