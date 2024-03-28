@@ -38,24 +38,22 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 65%;
 }
-.bg-0 {
+.hero {
     height: 100%;
     background-color: black;
     background-image: url("img/hero.avif");
 }
 .bg-1 {
-    height: 65%;
     background-color: #1844cb;
     background-image: url("./img/background_1.jpg");
 }
 .bg-2 {
-    height: 85%;
     background-color: black;
     background-image: url("./img/background_2.jpg");
 }
 .bg-3 {
-    height: 55%;
     background-color: #1297c7;
     background-image: url("./img/background_3.jpg");
 }
@@ -105,11 +103,17 @@ html, body {
 }
 
 .footer{
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 0;
     display: inline-flex;
     justify-content: space-evenly;
 }
 
+.copyright {
+    font-size: 1rem;
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+}
 
 a {
     color: inherit;
