@@ -42,7 +42,7 @@ html, body {
 .bg-0 {
     height: 100%;
     background-color: black;
-    background-image: url("img/background_0.jpg");
+    background-image: url("img/hero.avif");
 }
 .bg-1 {
     height: 65%;
