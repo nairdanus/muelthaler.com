@@ -192,7 +192,7 @@ a:hover {
 
 .back-link {
     color: white;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 15px;
     > img {
