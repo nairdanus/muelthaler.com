@@ -10,12 +10,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="icon" href="{% static 'img/web_logo.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link 
-            rel="preload" 
-            as="image" 
-            imagesrcset="{% static "img/hero-3840.avif" %} 3840w, {% static "img/hero-1920.avif" %}, 1920w" 
-            href="{% static "img/hero-1920.avif" %}" 
-            imagesizes="100vw">
+    <link rel="preload" as="image" href="{% static "img/hero.avif" %}" imagesizes="100vw">
 </head>
 
 <body>
