@@ -190,14 +190,23 @@ a:hover {
     }
 }
 
-.logo {
+.back-link {
     color: white;
     position: absolute;
-    left: 15px;
+    left: 0;
     top: 15px;
     > img {
         width: 5rem;
+        animation: shake 2s 0.5;
     }
+    > img:hover {
+            animation: shake 2s infinite;
+        }
+}
+@keyframes shake {
+	0%, 100% {transform: translateX(0);}
+	50% {transform: translateX(0px);}
+	25%, 75% {transform: translateX(15px);}
 }
 
 .white {
