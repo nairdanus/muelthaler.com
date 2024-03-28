@@ -84,6 +84,11 @@ html, body {
         width: 90%;
         transform: scale(1);
     }
+    > button {
+        background-color: antiquewhite;
+        border: none;
+        margin: 10px;
+    }
 }
 
 .captcha-wrapper {
@@ -185,3 +190,16 @@ a:hover {
     }
 }
 
+.logo {
+    color: white;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    > img {
+        width: 5rem;
+    }
+}
+
+.white {
+    color: white;
+}
