@@ -2,3 +2,4 @@ Django
 whitenoise
 python-decouple
 django-simple-captcha
+django-csp

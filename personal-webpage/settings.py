@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'csp.middleware.CSPMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,3 +115,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 X_FRAME_OPTIONS = 'ALLOW-FROM https://cloud.muelthaler.com/'
 
+# CSP OPTIONS:
+CSP_DEFAULT_SRC = ("'self'", "data:")
+CSP_IMG_SRC = "'self'"
+CSP_SCRIPT_SRC = "'self'"
+CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
+CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
