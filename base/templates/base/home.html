@@ -26,11 +26,21 @@
     <p><b>{{ interest_title|linebreaks }}</b></p>
     <br>
     <div class="interest_list">
-        <ul>
-            {% for i in interests %}
-            <li>{{ i }}</li>
-            {% endfor %}
-        </ul>
+        {% for desc, img in interests.items %}
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        {% with 'img/'|add:img as image_static %}
+                            <img src="{% static image_static %}" alt="">
+                        {% endwith %}
+                    </div>
+                    <div class="flip-box-back">
+                        <p>{{ desc }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
     </div>
 </div>
 

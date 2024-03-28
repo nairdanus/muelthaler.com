@@ -26,7 +26,7 @@ html, body {
     }
 }
 .contact-wrapper:hover > div {
-    background-color: #2b574b;
+    background-color: #7e44c4;
     border-radius: 20px;
     color: white;
     padding: 10px;
@@ -34,25 +34,28 @@ html, body {
 }
 
 .bg {
-    height: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .bg-0 {
+    height: 100%;
     background-color: black;
     background-image: url("img/background_0.jpg");
 }
 .bg-1 {
+    height: 65%;
     background-color: #1844cb;
     background-image: url("./img/background_1.jpg");
 }
 .bg-2 {
+    height: 85%;
     background-color: black;
     background-image: url("./img/background_2.jpg");
 }
 .bg-3 {
+    height: 55%;
     background-color: #1297c7;
     background-image: url("./img/background_3.jpg");
 }
@@ -72,19 +75,6 @@ html, body {
     font-weight: bold;
     padding: 0.5em 1em;
     background-color: rgba(134, 134, 134, 0.74);
-}
-
-.interest_list{
-    width: 100%;
-}
-.interest_list > ul {
-    margin: auto;
-    text-align: left;
-    width: 25%;
-    @media screen and (max-width: 800px) {
-        padding: 0 0 0 10%;
-        width: 80%;
-    }
 }
 
 .captcha-form {
@@ -127,5 +117,67 @@ a {
 }
 a:hover {
     text-decoration: underline;
-    color: #2b574b;
+    color: #7e44c4;
 }
+
+
+.interest_list {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-gap: 30px;
+    justify-content: center;
+
+    @media screen and (max-width: 1305px) {
+        grid-template-columns: 300px 300px;
+    }
+    @media screen and (max-width: 920px) {
+        grid-template-columns: 300px;
+    }
+}
+
+.flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.flip-box-front {
+    background-color: #bbb;
+    color: black;
+    > img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.flip-box-back {
+    background-color: rgba(126,68,196,0.8);
+    transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    > p {
+        color: white;
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+}
+
