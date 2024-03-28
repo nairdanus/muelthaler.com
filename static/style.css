@@ -6,7 +6,7 @@ html, body {
 .content {
     width: 100%;
     position: relative;
-    background-color: rgb(144, 144, 144);
+    background-color: rgba(134, 134, 134, 0.74);
     padding: 5rem 0;
     font-size: 1.8em;
     font-family: "Accanthis ADF Std", serif;
@@ -42,14 +42,7 @@ html, body {
 .bg-0 {
     height: 100%;
     background-color: black;
-}
-.hero img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
+    background-image: url("img/hero.avif");
 }
 .bg-1 {
     height: 65%;
