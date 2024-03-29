@@ -3,6 +3,34 @@ html, body {
     margin: 0;
 }
 
+@font-face {
+    font-family: "Accanthis ADF Std";
+    src: url("fonts/Accanthis-Std/OTF/AccanthisADFStd-Regular.otf") format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Accanthis ADF Std";
+    src: url("fonts/Accanthis-Std/OTF/AccanthisADFStd-Bold.otf") format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Accanthis ADF Std";
+    src: url("fonts/Accanthis-Std/OTF/AccanthisADFStd-Italic.otf") format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Accanthis ADF Std";
+    src: url("fonts/Accanthis-Std/OTF/AccanthisADFStd-BoldItalic.otf") format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
 .content {
     width: 100%;
     position: relative;
@@ -108,13 +136,13 @@ html, body {
 }
 
 .footer{
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 2.2rem 0;
     display: inline-flex;
     justify-content: space-evenly;
 }
 
 .copyright {
-    font-size: 1rem;
+    font-size: 1.2rem;
     position: absolute;
     margin: auto;
     bottom: 0;
