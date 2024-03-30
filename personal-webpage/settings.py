@@ -11,7 +11,8 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
 
 
-ALLOWED_HOSTS = ["localhost", "muelthaler.com"]
+ALLOWED_HOSTS = ["localhost", "muelthaler.com", "www.muelthaler.com"]
+REMOVE_WWW = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'personal-webpage.middleware.RemoveWWWMiddleware'
 ]
 
 ROOT_URLCONF = 'personal-webpage.urls'
