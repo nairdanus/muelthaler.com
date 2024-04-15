@@ -128,11 +128,17 @@ html, body {
 
 
 .iframe {
-    width: 40%;
+    width: 60%;
     height: 90%;
     position: absolute;
-    left: 30%;
+    left: 20%;
     top: 5%;
+    @media screen and (max-width: 920px) {
+        width: 95%;
+        left: 2.5%;
+        top: 20%;
+        height: 80%;
+    }
 }
 
 .footer{
