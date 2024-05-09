@@ -37,14 +37,14 @@
             <div class="cards">
                 {% for match in matches %}
                     <div class="card">
-                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>", Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}</p>
+                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>", Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}
                         {% if match.total_goals > match.counter_goals %}
-                        <p class="result-w"><b>&nbsp;&nbsp;GEWONNEN</b></p>
+                        <b class="result-w"><br />GEWONNEN</b>
                         {% elif match.total_goals < match.counter_goals %}
-                        <p class="result-l"><b>&nbsp;&nbsp;VERLOREN</b></p>
+                        <b class="result-l"><br />VERLOREN</b>
                         {% else %}
-                        <p class="result-r"><b>&nbsp;&nbsp;UNENTSCHIEDEN</b></p>
-                        {% endif %}
+                        <b class="result-r"><br />UNENTSCHIEDEN</b>
+                        {% endif %}</p>
                     </div>
                 {% endfor %}
             </div>
