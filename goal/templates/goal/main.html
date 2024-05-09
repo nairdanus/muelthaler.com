@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Torjägerliste</title>
+    <link rel="stylesheet" href="{% static 'style_goals.css' %}">
+    <link rel="icon" href="{% static 'img/feiern_muenchen.png' %}">
+</head>
+<body class="bg-beige">
+    <div class="logo">
+        <img src="{% static 'img/feiern_muenchen.png' %}" alt="Logo">
+    </div>
+    <div class="wrapper">
+        <div class="under-wrapper">
+            <h1 class="title">Torjägerliste:</h1>
+            <div class="cards">
+                {% for player in top_scorers %}
+                    <div class="card">
+                        {% if player.profile_picture %}
+                        <img src="{{ player.profile_picture.url }}" alt="{{ player.name }}" class=" card-image">
+                        {% else %}
+                        <img src="{% static 'img/feiern_muenchen.png' %}" alt="Profile" class="card-image">
+                        {% endif %}
+                        {% if player.total_goals %}
+                        <p class="card-text">{{ player.name }} - {{ player.total_goals }} Tore in {{ player.matches_played }} Spielen</p>
+                        {% else %}
+                        <p class="card-text">{{ player.name }} - 0 Tore in {{ player.matches_played }} Spielen</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="under-wrapper">
+            <h1 class="title">Spiele:</h1>
+            <div class="cards">
+                {% for match in matches %}
+                    <div class="card">
+                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>", Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}</p>
+                        {% if match.total_goals > match.counter_goals %}
+                        <p class="result-w"><b>&nbsp;&nbsp;GEWONNEN</b></p>
+                        {% elif match.total_goals < match.counter_goals %}
+                        <p class="result-l"><b>&nbsp;&nbsp;VERLOREN</b></p>
+                        {% else %}
+                        <p class="result-r"><b>&nbsp;&nbsp;UNENTSCHIEDEN</b></p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
