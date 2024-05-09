@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Torjägerliste</title>
+    <link rel="stylesheet" href="{% static 'style_goals.css' %}">
+    <link rel="icon" href="{% static 'img/feiern_muenchen.png' %}">
+</head>
+<body class="bg-beige">
+    <div class="logo">
+        <a href="/goals">
+        <img src="{% static 'img/feiern_muenchen.png' %}" alt="Logo">
+        </a>
+    </div>
+    <div class="wrapper">
+        <div class="under-wrapper">
+            {% if object.group_picture %}
+            <img src="{{ object.group_picture.url }}" alt="{{ player.name }}" class="group_picture">
+            {% endif %}
+        </div>
+        <div class="under-wrapper">
+            <h1 class="title">Spiel gegen {{ object.opponent }}:</h1>
+            <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}
+            <p class="infos">Ergebnis: {{ total_goals }} : {{ object.counter_goals }}
+            <p class="infos">Spieler:</p>
+            {% for goal in match_goals %}
+                <p class="player">{{ goal.player.name }} - {{ goal.goals_scored }} Tore</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+</html>
+
+

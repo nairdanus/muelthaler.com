@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
 
     'base',
     'captcha',
+    'goal',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,7 @@ CSP_SCRIPT_SRC = "'self'"
 CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
 CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
 CSP_FRAME_SRC = ("'self'", "https://cloud.muelthaler.com")
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
