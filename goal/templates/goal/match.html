@@ -22,9 +22,11 @@
         </div>
         <div class="under-wrapper">
             <h1 class="title">Spiel gegen {{ object.opponent }}:</h1>
-            <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}
-            <p class="infos">Ergebnis: {{ total_goals }} : {{ object.counter_goals }}
-            <p class="infos">Spieler:</p>
+            <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}</p>
+            <p class="infos">Ergebnis: {{ total_goals }} : {{ object.counter_goals }}</p>
+            <p class="infos">Spielbericht:<br></p>
+            <p class="player">{{ object.report|linebreaksbr }}</p>
+            <p class="infos">Anwesende Spieler:</p>
             {% for goal in match_goals %}
                 <p class="player">{{ goal.player.name }} - {{ goal.goals_scored }} Tore</p>
             {% endfor %}
