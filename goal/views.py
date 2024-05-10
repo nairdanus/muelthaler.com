@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.db.models import Count, Sum
+from django.db.models import Count, Case, When, IntegerField, Sum, F
 from django.views.generic import DetailView
 from .models import Player, Goal, Match
 from django.db import models
@@ -7,9 +7,39 @@ from django.shortcuts import get_object_or_404
 
 
 def overall(request):
-    player_goals = Player.objects.annotate(total_goals=Sum('goal__goals_scored'), matches_played=Count('goal__match')).order_by('-total_goals')
+    player_goals = Player.objects.annotate(
+        total_goals=Sum('goal__goals_scored'),
+        matches_played=Count('goal__match', distinct=True)
+    ).order_by('-total_goals', '-matches_played')
+
     matches = Match.objects.annotate(total_goals=Sum('goal__goals_scored'))
-    return render(request, 'goal/main.html', {'top_scorers': player_goals, 'matches': matches})
+
+    total_goals_all_matches = Goal.objects.aggregate(total_goals=Sum('goals_scored'))['total_goals']
+    total_counter_goals_all_matches = Match.objects.aggregate(total_counter_goals=Sum('counter_goals'))['total_counter_goals']
+    goal_difference = total_goals_all_matches - total_counter_goals_all_matches
+
+    # Calculate total wins and losses for the team
+    wins_losses = matches.annotate(
+        outcome=Case(
+            When(total_goals__gt=F('counter_goals'), then=1),
+            When(total_goals__lt=F('counter_goals'), then=-1),
+            default=0,
+            output_field=IntegerField(),
+        )
+    ).aggregate(
+        total_wins=Count(Case(When(outcome=1, then=1), output_field=IntegerField())),
+        total_losses=Count(Case(When(outcome=-1, then=1), output_field=IntegerField()))
+    )
+
+    return render(request, 'goal/main.html', {
+        'top_scorers': player_goals, 
+        'matches': matches, 
+        'goal_difference': goal_difference,
+        'total_goals': total_goals_all_matches,
+        'total_counter_goals': total_counter_goals_all_matches,
+        'total_wins': wins_losses['total_wins'],
+        'total_losses': wins_losses['total_losses'],
+        })
 
 class MatchDetailView(DetailView):
     model = Match

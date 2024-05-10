@@ -28,6 +28,17 @@
     width: 80px;
 }
 
+.overall-score {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+
+.overall-score p {
+    font-size: 1.2rem;
+    line-height: 0.4;
+}
+
 .title {
     margin-top: 100px;
     margin-left: 50px;
@@ -104,4 +115,3 @@
         margin-left: 15px;
     }
 }
-
