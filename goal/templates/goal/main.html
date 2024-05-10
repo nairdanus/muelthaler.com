@@ -12,6 +12,11 @@
     <div class="logo">
         <img src="{% static 'img/feiern_muenchen.png' %}" alt="Logo">
     </div>
+    <div class="overall-score">
+        <p>Siege - {{ total_wins }}</p>
+        <p>Niederlagen - {{ total_losses }}</p>
+        <p>Tor Diff - {{ goal_difference }}</p>
+    </div>
     <div class="wrapper">
         <div class="under-wrapper">
             <h1 class="title">Torjägerliste:</h1>
