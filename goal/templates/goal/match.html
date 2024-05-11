@@ -15,11 +15,11 @@
         </a>
     </div>
     <div class="wrapper">
+        {% if object.group_picture %}
         <div class="under-wrapper">
-            {% if object.group_picture %}
             <img src="{{ object.group_picture.url }}" alt="{{ player.name }}" class="group_picture">
-            {% endif %}
         </div>
+        {% endif %}
         <div class="under-wrapper">
             <h1 class="title">Spiel gegen {{ object.opponent }}:</h1>
             <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}</p>
@@ -30,7 +30,7 @@
             {% endif %}
             <p class="infos">Anwesende Spieler:</p>
             {% for goal in match_goals %}
-                <p class="player">{{ goal.player.name }} - {{ goal.goals_scored }} Tore</p>
+                <p class="player">{{ goal.player.name }} - {{ goal.goals_scored }} Tor{{ goal.goals_scored|pluralize:'e' }}</p>
             {% endfor %}
         </div>
     </div>
