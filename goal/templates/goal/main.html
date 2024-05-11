@@ -31,7 +31,7 @@
                         {% if player.total_goals %}
                         <p class="card-text">{{ player.name }} - {{ player.total_goals }} Tor{{ player.total_goals|pluralize:'e' }} in {{ player.matches_played }} Spiel{{ player.matches_played|pluralize:'en' }}</p>
                         {% else %}
-                        <p class="card-text">{{ player.name }} - 0 Tore in Spiel{{ player.matches_played|pluralize:'en' }}</p>
+                        <p class="card-text">{{ player.name }} - 0 Tore in {{ player.matches_played }} Spiel{{ player.matches_played|pluralize:'en' }}</p>
                         {% endif %}
                     </div>
                     {% endfor %}
