@@ -12,7 +12,7 @@ def overall(request):
         matches_played=Count('goal__match', distinct=True)
     ).order_by('-total_goals', '-matches_played')
 
-    matches = Match.objects.annotate(total_goals=Sum('goal__goals_scored'))
+    matches = Match.objects.annotate(total_goals=Sum('goal__goals_scored')).order_by('-date')
 
     total_goals_all_matches = Goal.objects.aggregate(total_goals=Sum('goals_scored'))['total_goals']
     total_counter_goals_all_matches = Match.objects.aggregate(total_counter_goals=Sum('counter_goals'))['total_counter_goals']
