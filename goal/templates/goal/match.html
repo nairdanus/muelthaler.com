@@ -26,7 +26,7 @@
             <h1 class="title">Spiel gegen {{ object.opponent }}:</h1>
             <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}</p>
 
-            {% if object.date|is_date_greater_than_now %}
+            {% if not object.date|is_date_greater_than_now %}
                 <p class="infos">Ergebnis: {{ total_goals }} : {{ object.counter_goals }}</p>
             {% endif %}
             
@@ -35,7 +35,7 @@
                 <div class="report">{{ object.pre_report|markdown_to_html|safe }}</div>
             {% endif %}
             
-            {% if object.date|is_date_greater_than_now %}
+            {% if not object.date|is_date_greater_than_now %}
                 {% if object.report %}
                     <p class="infos">Spielbericht:<br></p>
                     <div class="report">{{ object.report|markdown_to_html|safe }}</div>
