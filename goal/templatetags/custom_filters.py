@@ -2,7 +2,7 @@
 from django import template
 
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime, time
 
 import markdown
 
@@ -10,10 +10,12 @@ register = template.Library()
 
 @register.filter
 def markdown_to_html(markdown_text):
-    return markdown.markdown(markdown_text, extensions=['markdown.extensions.tables'])
+    html = markdown.markdown(markdown_text, extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
+    return html
+
 
 @register.filter
 def is_date_greater_than_now(date):
-    # Convert date to datetime and make it aware of timezone
-    date_with_timezone = timezone.make_aware(datetime.combine(date, datetime.min.time()))
+    date_with_time = datetime.combine(date, time(hour=20))
+    date_with_timezone = timezone.make_aware(date_with_time)
     return date_with_timezone > timezone.now()
