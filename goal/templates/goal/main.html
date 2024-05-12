@@ -1,4 +1,6 @@
 {% load static %}
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,14 +44,19 @@
             <div class="cards">
                 {% for match in matches %}
                     <div class="card">
-                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>", Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}
-                        {% if match.total_goals > match.counter_goals %}
-                        <b class="result-w"><br />GEWONNEN</b>
-                        {% elif match.total_goals < match.counter_goals %}
-                        <b class="result-l"><br />VERLOREN</b>
-                        {% else %}
-                        <b class="result-r"><br />UNENTSCHIEDEN</b>
-                        {% endif %}</p>
+                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>"
+                            
+                            {% if match.date|is_date_greater_than_now %}, <b>am {{ match.date|date:"d.m.Y" }}</b>{% else %}, Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}{% endif %}
+                        
+                        {% if not match.date|is_date_greater_than_now %}
+                            {% if match.total_goals > match.counter_goals %}
+                            <b class="result-w"><br />GEWONNEN</b>
+                            {% elif match.total_goals < match.counter_goals %}
+                            <b class="result-l"><br />VERLOREN</b>
+                            {% else %}
+                            <b class="result-r"><br />UNENTSCHIEDEN</b>
+                            {% endif %}</p>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
