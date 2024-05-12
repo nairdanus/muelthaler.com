@@ -57,7 +57,7 @@ class MatchDetailView(DetailView):
         match = self.get_object()
         
         # Get all goals for the match
-        match_goals = Goal.objects.filter(match=match)
+        match_goals = Goal.objects.filter(match=match).order_by('-goals_scored')
         total_goals = match_goals.aggregate(total_goals=Sum('goals_scored'))['total_goals']
 
         # Count goals for each player in the match
