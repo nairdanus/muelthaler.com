@@ -24,6 +24,10 @@
             <h1 class="title">Spiel gegen {{ object.opponent }}:</h1>
             <p class="infos">Datum: {{ object.date|date:"d.m.Y" }}</p>
             <p class="infos">Ergebnis: {{ total_goals }} : {{ object.counter_goals }}</p>
+            {% if object.pre_report %}
+            <p class="infos">Vorbericht:<br></p>
+            <p class="player">{{ object.pre_report|linebreaksbr }}</p>
+            {% endif %}
             {% if object.report %}
             <p class="infos">Spielbericht:<br></p>
             <p class="player">{{ object.report|linebreaksbr }}</p>
