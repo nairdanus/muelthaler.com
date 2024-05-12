@@ -115,3 +115,19 @@
         margin-left: 15px;
     }
 }
+
+.report {
+    margin-left: 60px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    border: 1px dashed;
+    width: 80%;
+    @media screen and (max-width: 500px) {
+        margin-left: 15px;
+        width: 90%;
+    }
+}
