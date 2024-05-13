@@ -12,11 +12,10 @@ class MarkdownHTMLField(models.TextField):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('validators', []).append(validate_html)
         super().__init__(*args, **kwargs)
-
+        
     def clean(self, value, model_instance):
-        html = markdown.markdown(value, extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
-        return mark_safe(html)
-
+            value = super().clean(value, model_instance)
+            return mark_safe(value)
 
 class Player(models.Model):
     name = models.CharField(max_length=100)
