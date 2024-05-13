@@ -8,9 +8,20 @@ import markdown
 
 register = template.Library()
 
+
+def custom_MD_controls(value):
+    value = value.replace("+hl+", "---")
+    value = value.replace("+table+", "<table>").replace("+/table+", "</table>")
+    value = value.replace("+tr+", "<tr>").replace("+/tr+", "</tr>")
+    value = value.replace("+th+", "<th>").replace("+/th+", "</th>")
+    value = value.replace("+td+", "<td>").replace("+/td+", "</td>")
+    return value
+
+
 @register.filter
 def MD_to_HTML(value):
-    return markdown.markdown(value, extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
+    return markdown.markdown(custom_MD_controls(value), 
+        extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
 
 
 @register.filter
