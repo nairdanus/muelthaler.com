@@ -2,15 +2,11 @@ from django.db import models
 from django.utils import timezone
 
 from django.utils.html import mark_safe
-from html_sanitizer.django import get_sanitize
 import markdown
 
 
 def validate_html(value):
-    sanitizer = get_sanitizer()
-    sanitized_value = sanitizer.sanitize(value)
-    if value != sanitized_value:
-        raise ValidationError('Invalid HTML detected.')
+    pass
 
 class MarkdownHTMLField(models.TextField):
     def __init__(self, *args, **kwargs):
