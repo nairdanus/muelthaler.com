@@ -32,13 +32,13 @@
             
             {% if object.pre_report %}
                 <p class="infos">Vorbericht:<br></p>
-                <div class="report">{{ object.pre_report|safe }}</div>
+                <div class="report">{{ object.pre_report|MD_to_HTML|safe }}</div>
             {% endif %}
             
             {% if not object.date|is_date_greater_than_now %}
                 {% if object.report %}
                     <p class="infos">Spielbericht:<br></p>
-                    <div class="report">{{ object.report|safe }}</div>
+                    <div class="report">{{ object.report|MD_to_HTML|safe }}</div>
                 {% endif %}
                 
                 <p class="infos">Anwesende Spieler:</p>

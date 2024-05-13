@@ -4,9 +4,13 @@ from django import template
 from django.utils import timezone
 from datetime import datetime, time
 
+import markdown
 
 register = template.Library()
 
+@register.filter
+def MD_to_HTML(value):
+    return markdown.markdown(value, extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
 
 
 @register.filter
