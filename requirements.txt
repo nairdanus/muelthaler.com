@@ -4,4 +4,3 @@ python-decouple
 django-simple-captcha
 django-csp
 markdown
-html-sanitizer
