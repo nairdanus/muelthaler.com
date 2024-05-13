@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 from django.utils.html import mark_safe
+import markdown
 
 
 class MarkdownHTMLField(models.TextField):
@@ -9,8 +10,8 @@ class MarkdownHTMLField(models.TextField):
         super().__init__(*args, **kwargs)
 
     def clean(self, value, model_instance):
-        value = super().clean(value, model_instance)
-        return mark_safe(html_content)
+        html = markdown.markdown(value, extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
+        return mark_safe(html)
 
 
 class Player(models.Model):
