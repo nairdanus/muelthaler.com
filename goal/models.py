@@ -11,8 +11,8 @@ class Player(models.Model):
 
 class Match(models.Model):
     opponent = models.CharField(max_length=100, default="Unbekannter Gegner")
-    pre_report = models.TextField(default="", blank=True)
-    report = models.TextField(default="", blank=True)
+    pre_report = models.TextField(default="", blank=True, validators=[])
+    report = models.TextField(default="", blank=True, validators=[])
     date = models.DateField(default=timezone.now)
     players = models.ManyToManyField(Player, through='Goal', related_name='matches')
     counter_goals = models.PositiveIntegerField(default=0)
