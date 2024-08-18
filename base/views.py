@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_protect
 
@@ -40,8 +40,7 @@ def open_pdf(request):
             pdf_path = settings.BASE_DIR / 'static' / 'redacted_CV.pdf'
             with open(pdf_path, 'rb') as f:
                 response = HttpResponse(f.read(), content_type='application/pdf')
-                response['Content-Disposition'] = 'inline; filename="CV_adrian_muelthaler.pdf"'
-                return response
+                return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf', filename='CV_adrian_muelthaler.pdf')
     else:
         form = PdfAccessForm()
     return render(request, 'base/open_cv.html', {'form': form})
