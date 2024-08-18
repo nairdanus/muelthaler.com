@@ -107,6 +107,7 @@ html, body {
     color: white;
     width: 35%;
     margin: auto;
+    margin-top: 50px;
     transform: scale(1.5);
     @media screen and (max-width: 800px) {
         width: 90%;
@@ -119,12 +120,12 @@ html, body {
     }
 }
 
-.captcha-wrapper {
+/* .captcha-wrapper {
     border-color: white;
     border-width: 2px;
     border-style: dashed;
     padding: 5px;
-}
+} */
 
 
 .iframe {
