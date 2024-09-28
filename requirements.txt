@@ -4,3 +4,4 @@ python-decouple
 django-simple-captcha
 django-csp
 markdown
+django-minify-html
