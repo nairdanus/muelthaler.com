@@ -31,6 +31,9 @@ def home(request):
 def contact(request):
     return render(request, 'base/contact.html')
 
+def parallax(request):
+    return render(request, 'base/parallax.html')
+
 
 @csrf_protect
 def open_pdf(request):

@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="parallax">
+    <img src="{% static 'img/rings/rings_0.png' %}" id="rings_0">
+    <img src="{% static 'img/rings/rings_1.png' %}" id="rings_1">
+    <img src="{% static 'img/rings/rings_2.png' %}" id="rings_2">
+    <img src="{% static 'img/rings/rings_3.png' %}" id="rings_3">
+    <img src="{% static 'img/rings/rings_4.png' %}" id="rings_4">
+    <img src="{% static 'img/rings/rings_5.png' %}" id="rings_5">
+    <img src="{% static 'img/rings/rings_6.png' %}" id="rings_6">
+</section>
+
+<script type="text/javascript" src="{% static 'js/parallax.js' %}"></script>
+
+
+{% endblock %}
