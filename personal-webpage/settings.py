@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django_minify_html',
 
     'base',
     'captcha',
@@ -38,7 +40,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'personal-webpage.middleware.RemoveWWWMiddleware'
+    'personal-webpage.middleware.RemoveWWWMiddleware',
+    'django_minify_html.middleware.MinifyHtmlMiddleware'
 ]
 
 ROOT_URLCONF = 'personal-webpage.urls'
