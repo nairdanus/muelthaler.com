@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
 }
 
@@ -31,16 +31,66 @@ html, body {
     font-style: italic;
 }
 
+p {
+    font-family: "Accanthis ADF Std", serif;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+        transform: rotate(0deg);
+    }
+    50% {
+        background-position: 100% 100%;
+        transform: rotate(180deg);
+    }
+    100% {
+        background-position: 0% 0%;
+        transform: rotate(360deg);
+    }
+}
 .content {
     width: 100%;
     position: relative;
-    background-color: rgba(134, 134, 134, 0.74);
+    background-color: rgba(134, 134, 134, 0.6);
     padding: 5rem 0;
     font-size: 1.8em;
-    font-family: "Accanthis ADF Std", serif;
     line-height: 40px;
     text-align: center;
+    overflow: hidden;
+
 }
+@media screen and (max-width: 500px) {
+    .content::before {
+        display: none;
+    }
+}
+.content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 30%;
+    width: 40%;
+    height: 200%;
+    background: radial-gradient(
+        farthest-corner at 50% 50%,
+        rgba(225, 53, 231, 0.7) 20%,
+        rgba(8, 4, 241, 0.7) 20%,
+        rgb(235,113,13,0.7) 40%,
+        rgba(233, 60, 7, 0.7) 60%,
+        rgba(240, 4, 4, 0.7) 80%
+        );
+    z-index: -1;
+    filter: blur(50px);
+    border-radius: 100%;
+
+    animation: gradientMove 10s linear infinite;
+    background-size: 200% 200%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+
+}
+
 .content p {
     margin: 0 2rem;
 }
@@ -147,7 +197,9 @@ html, body {
     display: inline-flex;
     justify-content: space-evenly;
 }
-
+.footer::before {
+    display: none;
+}
 .copyright {
     font-size: 1.2rem;
     position: absolute;

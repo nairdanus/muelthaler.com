@@ -17,7 +17,7 @@ section.parallax:before {
     width: 100%;
     height: 100px;
     background: linear-gradient(to top, black), transparent;
-    z-index: 1000;
+    z-index: 50;
 }
 
 section.parallax:after {
@@ -37,5 +37,18 @@ section.parallax img {
     width: 100%;
     object-fit: cover;
     pointer-events: none;
+}
 
+div#interest_title_wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    z-index: 500;
+}
+
+div#interest_title_wrapper p {
+    text-align: center;
+    margin: auto;
+    font-size: 60px;
+    color: white;
 }
