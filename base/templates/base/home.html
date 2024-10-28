@@ -14,16 +14,15 @@
 
 
 <div class="content">
-    <p>
-        {{ personal_description|linebreaks }}
-    </p>
+    {{ personal_description|linebreaks }}
 </div>
 
 <div class="bg bg-{{ bg1 }}">
 </div>
 
 <div class="content">
-    <p><b>{{ interest_title|linebreaks }}</b></p>
+    <b>{{ interest_title|linebreaks }}</b>
+    <br>
     <br>
     <div class="interest_list">
         {% for desc, img in interests.items %}
