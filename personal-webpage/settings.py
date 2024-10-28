@@ -10,7 +10,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
-
+    
+    SECURE_HSTS_PRELOAD = True
 
 
 ALLOWED_HOSTS = ["localhost", "muelthaler.com", "www.muelthaler.com"]
