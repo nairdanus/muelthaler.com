@@ -60,12 +60,12 @@ p {
     overflow: hidden;
 
 }
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     .content::before {
         display: none;
     }
-}
-.content::before {
+} */
+/* .content::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -89,7 +89,7 @@ p {
     transform: translate(-50%, -50%) rotate(45deg);
 
 
-}
+} */
 
 .content p {
     margin: 0 2rem;
