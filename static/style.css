@@ -1,6 +1,7 @@
 html, body {
     height: 100vh;
     margin: 0;
+    background-color: black;
 }
 
 @font-face {
@@ -52,7 +53,7 @@ p {
 .content {
     width: 100%;
     position: relative;
-    background-color: rgba(134, 134, 134, 0.6);
+    background-color: rgb(171, 171, 171);
     padding: 5rem 0;
     font-size: 1.8em;
     line-height: 40px;
@@ -153,29 +154,96 @@ p {
     background-color: rgba(134, 134, 134, 0.74);
 }
 
-.captcha-form {
+.captcha-wrapper {
+    background-color: #f7f7f7c3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.captcha-wrapper label {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.captcha-wrapper .captcha {
+    width: 90%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.captcha-wrapper input {
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+.captcha-wrapper input:focus {
+    border-color: #7e44c4;
+    outline: none;
+}
+
+.captcha-wrapper input[type="hidden"] {
+    display: none;
+}
+
+.captcha-form button {
+    background-color: #7e44c4;
     color: white;
-    width: 35%;
-    margin: auto;
-    margin-top: 50px;
-    transform: scale(1.5);
-    @media screen and (max-width: 800px) {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+}
+
+.captcha-form button:hover {
+    background-color: #0056b3;
+}
+
+.captcha-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 800px) {
+    .captcha-wrapper {
         width: 90%;
+        padding: 15px;
         transform: scale(1);
     }
-    > button {
-        background-color: antiquewhite;
-        border: none;
-        margin: 10px;
+
+    .captcha-wrapper .captcha {
+        max-width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .captcha-form button {
+        padding: 10px 20px;
     }
 }
 
-/* .captcha-wrapper {
-    border-color: white;
-    border-width: 2px;
-    border-style: dashed;
-    padding: 5px;
-} */
 
 
 .iframe {
