@@ -4,8 +4,8 @@
 {% block title %}Get my CV{% endblock %}
 
 {% block universe %}
-    <div class="name">
-    <h1 class="white">See my CV</h1>
+    <div class="cv-content">
+        <h1 class="white">See my CV</h1>
         <form class="captcha-form" method="post">
             {% csrf_token %}
             <div class="captcha-wrapper">{{ form }}</div>

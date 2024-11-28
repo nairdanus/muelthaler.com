@@ -154,6 +154,14 @@ p {
     background-color: rgba(134, 134, 134, 0.74);
 }
 
+
+.cv-content{
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
 .captcha-wrapper {
     background-color: #f7f7f7c3;
     padding: 20px;
@@ -212,7 +220,6 @@ p {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
     width: 100%;
     max-width: 200px;
     box-sizing: border-box;
