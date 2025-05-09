@@ -22,9 +22,9 @@
     <div class="wrapper">
         <div class="under-wrapper">
             <h1 class="title">Torjägerliste:</h1>
-            <div class="cards">
+            <div class="player-cards">
                 {% for player in top_scorers %}
-                    <div class="card">
+                    <div class="player-card">
                         {% if player.profile_picture %}
                         <img src="{{ player.profile_picture.url }}" alt="{{ player.name }}" class=" card-image">
                         {% else %}
@@ -41,10 +41,11 @@
         </div>
         <div class="under-wrapper">
             <h1 class="title">Spiele:</h1>
-            <div class="cards">
+            <div class="match-cards">
                 {% for match in matches %}
-                    <div class="card">
-                        <p class="card-text">"<a href="match/{{ match.date|date:"d_m_Y" }}">{{ match.opponent }}</a>"
+                <div class="match-card">
+                        <a href="match/{{ match.date|date:'d_m_Y' }}"><span></span></a>
+                        <p class="card-text">"{{ match.opponent }}"
                             
                             {% if match.date|is_date_greater_than_now %}, <b>am {{ match.date|date:"d.m.Y" }}</b>{% else %}, Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}{% endif %}
                         
