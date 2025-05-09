@@ -16,7 +16,11 @@ def overall(request):
 
     total_goals_all_matches = Goal.objects.aggregate(total_goals=Sum('goals_scored'))['total_goals']
     total_counter_goals_all_matches = Match.objects.aggregate(total_counter_goals=Sum('counter_goals'))['total_counter_goals']
-    goal_difference = total_goals_all_matches - total_counter_goals_all_matches
+    
+    if total_goals_all_matches is None or total_counter_goals_all_matches is None:
+        goal_difference = 0
+    else:
+        goal_difference = total_goals_all_matches - total_counter_goals_all_matches
 
     # Calculate total wins and losses for the team
     wins_losses = matches.annotate(
