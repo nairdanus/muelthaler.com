@@ -47,7 +47,7 @@
                         <a href="match/{{ match.date|date:'d_m_Y' }}"><span></span></a>
                         <p class="card-text">"{{ match.opponent }}"
                             
-                            {% if match.date|is_date_greater_than_now %}, <b>am {{ match.date|date:"d.m.Y" }}</b>{% else %}, Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}{% endif %}
+                            {% if match.date|is_date_greater_than_now %}, <b>am {{ match.date|date:"d.m.Y" }}</b>{% else %}<br> Ergebnis: {{ match.total_goals }}:{{ match.counter_goals }}{% endif %}
                         
                         {% if not match.date|is_date_greater_than_now %}
                             {% if match.total_goals > match.counter_goals %}
