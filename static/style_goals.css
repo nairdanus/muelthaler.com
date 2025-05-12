@@ -56,6 +56,11 @@ body {
     margin-top: 40px;
 }
 
+    .under-wrapper img {
+        width: 100%;
+        margin-top: 40px;
+    }
+
 .title {
     font-size: 2rem;
     font-weight: bold;
