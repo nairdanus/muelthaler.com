@@ -1,0 +1,62 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.center-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    transform: rotate(-45deg);
+    animation: bounce 1.5s infinite;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(12px); }
+}
+
+.video-section {
+    transform: translateY(50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    background-color: #000;
+    min-height: 100vh;
+}
+
+
+iframe {
+    width: 90vw;
+    max-width: 960px;
+    height: 540px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    iframe {
+    height: 300px;
+    }
+}

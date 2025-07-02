@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scroll Reveal Video</title>
+  <link rel="stylesheet" href="{% static 'style_kam.css' %}">
+</head>
+<body>
+
+  <section class="center-section">
+    <h1>Ich wollte dir das schon seit langem schenken!</h1>
+    <h3>Leider habe ich dafür sehr lange gebraucht :(</h3>
+    <h2>Ich liebe Dich sehr Kam❤️</h2>
+    <h1>Scroll runter</h1>
+    <h2>In Ruhe, mit Ton schauen!</h2>
+    <a href="#video-section" class="scroll-arrow"></a>
+  </section>
+
+  <section class="video-section" id="video-section">
+    <video controls width="50%" height="auto">
+        <source src="{% static 'videos/Stammtisch.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+  </section>
+
+
+</body>
+</html>

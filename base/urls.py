@@ -10,5 +10,6 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('cv/', open_pdf, name='open_pdf'),
     path('parallax/', parallax, name='parallax'),
-    path('goals/', include('goal.urls'))
+    path('goals/', include('goal.urls')),
+    path('kam/', include('kam.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
