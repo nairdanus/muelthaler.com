@@ -133,7 +133,7 @@ CSP_IMG_SRC = "'self'"
 CSP_SCRIPT_SRC = "'self'"
 CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
 CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
-CSP_FRAME_SRC = ("'self'", "https://cloud.muelthaler.com")
+CSP_FRAME_SRC = ("'self'", "https://cloud.muelthaler.com", "https://www.canva.com")
 
 
 MEDIA_URL = '/media/'
