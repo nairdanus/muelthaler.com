@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from random import sample
 
 from . forms import PdfAccessForm
-from . models import Personal
+from . models import Personal, PROJECTS
 
 # Create your views here.
 
@@ -24,8 +24,10 @@ def home(request):
         'interest_title': Personal.interest_title,
         'interests': Personal.interests,
         'contact_text': Personal.contact_text,
+        'projects': PROJECTS,        # ← new line
     }
     return HttpResponse(template.render(context, request))
+
 
 
 def contact(request):
@@ -43,7 +45,7 @@ def open_pdf(request):
             pdf_path = settings.BASE_DIR / 'static' / 'redacted_CV.pdf'
             with open(pdf_path, 'rb') as f:
                 response = HttpResponse(f.read(), content_type='application/pdf')
-                return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf', filename='CV_adrian_muelthaler.pdf')
+                return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf', filename='redacted_CV.pdf')
     else:
         form = PdfAccessForm()
     return render(request, 'base/open_cv.html', {'form': form})
