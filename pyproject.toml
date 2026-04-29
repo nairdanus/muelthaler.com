@@ -1,0 +1,15 @@
+[project]
+name = "muelthaler-com"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.0.4",
+    "django-csp>=4.0",
+    "django-minify-html>=1.14.0",
+    "django-simple-captcha>=0.6.3",
+    "markdown>=3.10.2",
+    "python-decouple>=3.8",
+    "whitenoise>=6.12.0",
+]
