@@ -1,58 +1,87 @@
 {% extends "master.html" %}
 {% load static %}
-
-
 {% block title %}Adrian Mülthaler{% endblock %}
-
 {% block universe %}
-    <div class="name">
-        <span>Adrian Mülthaler</span>
-    </div>
+<div class="name">
+    <span>Adrian Mülthaler</span>
+</div>
 {% endblock %}
-
 {% block content %}
-
-
 <div class="content">
     {{ personal_description|linebreaks }}
 </div>
-
 <div class="bg bg-{{ bg1 }}">
 </div>
-
 <div class="content">
     <b>{{ interest_title|linebreaks }}</b>
     <br>
     <br>
     <div class="interest_list">
         {% for desc, img in interests.items %}
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        {% with 'img/'|add:img as image_static %}
-                            <img src="{% static image_static %}" alt="">
-                        {% endwith %}
-                    </div>
-                    <div class="flip-box-back">
-                        <p>{{ desc }}</p>
-                    </div>
+        <div class="flip-box">
+            <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    {% with 'img/'|add:img as image_static %}
+                    <img src="{% static image_static %}" alt="">
+                    {% endwith %}
+                </div>
+                <div class="flip-box-back">
+                    <p>{{ desc }}</p>
                 </div>
             </div>
-        {% endfor %}
         </div>
+        {% endfor %}
     </div>
 </div>
 
 <div class="bg bg-{{ bg2 }}">
 </div>
 
-<div class="content contact-wrapper">
-    <div>
-        <b><a href="/contact/">
-            {{ contact_text }}
-        </a></b>
+{# ── Projects Section ─────────────────────────────────────────── #}
+<section class="projects-section">
+    <div class="projects-header">
+        <span class="projects-label">A SELECTION OF MY</span>
+        <h2 class="projects-title">Projects</h2>
     </div>
-</div>
+
+    <div class="projects-track">
+        {% for project in projects %}
+        <article class="project-card" data-index="{{ forloop.counter }}">
+            <div class="project-card__image-wrap">
+                {% if project.image %}
+                    {% with 'img/projects/'|add:project.image as image_static %}
+                    <img
+                        class="project-card__img"
+                        src="{% static image_static %}"
+                        alt="{{ project.title }}"
+                        loading="lazy"
+                    >
+                    {% endwith %}
+                {% else %}
+                    <div class="project-card__img project-card__img--placeholder"></div>
+                {% endif %}
+                <div class="project-card__overlay"></div>
+                <!-- <span class="project-card__number">{{ forloop.counter|stringformat:"02d" }}</span> -->
+            </div>
+
+            <div class="project-card__body">
+                <h3 class="project-card__title">{{ project.title }}</h3>
+                {% if project.subtitle %}
+                <p class="project-card__subtitle">{{ project.subtitle }}</p>
+                {% endif %}
+                <p class="project-card__abstract">{{ project.abstract }}</p>
+                {% if project.link %}
+                <a class="project-card__link" href="{{ project.link }}" target="_blank" rel="noopener">
+                    View project <span class="project-card__arrow" aria-hidden="true">→</span>
+                </a>
+                {% endif %}
+            </div>
+        </article>
+        {% empty %}
+        <p class="projects-empty">No projects yet — check back soon.</p>
+        {% endfor %}
+    </div>
+</section>
 
 <div class="bg bg-{{ bg3 }}">
 </div>
