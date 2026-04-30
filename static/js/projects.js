@@ -2,42 +2,44 @@
 (function () {
   "use strict";
 
-  const cards = document.querySelectorAll(".project-card");
+  const wrapper = document.querySelector(".projects-wrapper");
+  const section = document.querySelector(".projects-section");
+  const track   = document.querySelector(".projects-track");
+  const cards   = document.querySelectorAll(".project-card");
+
+  if (!wrapper || !section || !track) return;
 
   if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            observer.unobserve(e.target);
           }
         });
       },
       { threshold: 0.12 }
     );
-    cards.forEach((card) => revealObserver.observe(card));
+    cards.forEach((c) => observer.observe(c));
   } else {
-    // Fallback: just show everything
     cards.forEach((c) => c.classList.add("is-visible"));
   }
 
-  function applyParallax() {
-    cards.forEach((card) => {
-      const img = card.querySelector(".project-card__img");
-      if (!img || img.classList.contains("project-card__img--placeholder")) return;
+  function update() {
+    const wrapperRect = wrapper.getBoundingClientRect();
 
-      const rect = card.getBoundingClientRect();
-      const windowH = window.innerHeight;
+    const scrolled = -wrapperRect.top;
 
-      const progress = 1 - (rect.bottom / (windowH + rect.height));
-      const shift = (progress - 0.5) * 60;
+    const total = wrapper.offsetHeight - window.innerHeight;
 
-      img.style.transform = `translateY(${shift}px)`;
-    });
+    const progress = Math.min(Math.max(scrolled / total, 0), 1);
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    track.scrollLeft = progress * maxScroll;
   }
 
-  window.addEventListener("scroll", applyParallax, { passive: true });
-  applyParallax(); // run once on load
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 
 })();
