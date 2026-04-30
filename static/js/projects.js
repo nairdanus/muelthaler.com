@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -30,24 +29,41 @@
     return window.innerWidth <= 768;
   }
 
+  function setScrollLength() {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+
+    const multiplier = 1.5;
+
+    wrapper.style.height =
+      `calc(100vh + ${maxScroll * multiplier}px)`;
+  }
+
   function update() {
     if (isMobile()) {
       track.scrollLeft = 0;
       return;
     }
-    const wrapperRect = wrapper.getBoundingClientRect();
 
+    const wrapperRect = wrapper.getBoundingClientRect();
     const scrolled = -wrapperRect.top;
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
 
     const total = wrapper.offsetHeight - window.innerHeight;
 
     const progress = Math.min(Math.max(scrolled / total, 0), 1);
 
-    const maxScroll = track.scrollWidth - track.clientWidth;
     track.scrollLeft = progress * maxScroll;
   }
 
+  function init() {
+    setScrollLength();
+    update();
+  }
+
   window.addEventListener("scroll", update, { passive: true });
-  update();
+  window.addEventListener("resize", init);
+
+  init();
 
 })();

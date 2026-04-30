@@ -1,6 +1,6 @@
 .projects-wrapper {
     position: relative;
-    height: calc(100vh + 300vw);
+    height: calc(100vh + (var(--scroll-length)));
     max-height: calc(100vh + 4000px);
 }
 
