@@ -129,7 +129,7 @@
 
 .project-card__subtitle {
     font-family: "Accanthis ADF Std", serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: italic;
     font-weight: normal;
     color: #7e44c4;
@@ -213,7 +213,35 @@
     padding: 2rem 0;
 }
 
-@media (max-width: 600px) {
-    .project-card { flex: 0 0 85vw; }
-    .projects-wrapper { height: calc(100vh + 500vw); }
+/* ── Mobile: single column, no sticky/horizontal scroll ──────────── */
+@media (max-width: 768px) {
+    .projects-wrapper {
+        height: auto !important;
+    }
+
+    .projects-section {
+        position: static;
+        height: auto;
+        padding: 2rem 0;
+        overflow: visible;
+    }
+
+    .projects-track {
+        flex-direction: column;
+        overflow-x: visible;
+        padding: 0 1.2rem 2rem;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        flex: none;
+        width: 100%;
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .project-card__image-wrap {
+        height: 220px;
+    }
 }
