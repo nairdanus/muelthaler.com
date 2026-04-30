@@ -26,7 +26,15 @@
     cards.forEach((c) => c.classList.add("is-visible"));
   }
 
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
   function update() {
+    if (isMobile()) {
+      track.scrollLeft = 0;
+      return;
+    }
     const wrapperRect = wrapper.getBoundingClientRect();
 
     const scrolled = -wrapperRect.top;
