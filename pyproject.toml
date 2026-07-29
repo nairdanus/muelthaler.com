@@ -9,6 +9,7 @@ dependencies = [
     "django-csp>=4.0",
     "django-minify-html>=1.14.0",
     "django-simple-captcha>=0.6.3",
+    "gunicorn>=26.0.0",
     "markdown>=3.10.2",
     "python-decouple>=3.8",
     "whitenoise>=6.12.0",
