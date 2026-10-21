@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+from csp.constants import SELF
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'csp.middleware.CSPMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -43,7 +45,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'personal-webpage.middleware.RemoveWWWMiddleware',
     'django_minify_html.middleware.MinifyHtmlMiddleware'
 ]
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'personal-webpage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': config('SQLITE_PATH', default=str(BASE_DIR / 'db.sqlite3')),
     }
 }
 
@@ -123,16 +124,19 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-X_FRAME_OPTIONS = 'ALLOW-FROM https://cloud.muelthaler.com/'
-
 # CSP OPTIONS:
-CSP_DEFAULT_SRC = ("'self'", "data:")
-CSP_IMG_SRC = "'self'"
-CSP_SCRIPT_SRC = "'self'"
-CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
-CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com',)
-CSP_FRAME_SRC = ("'self'", "https://cloud.muelthaler.com", "https://www.canva.com")
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF, "data:"],
+        "img-src": [SELF],
+        "script-src": [SELF],
+        "style-src": [SELF, "https://cdnjs.cloudflare.com"],
+        "font-src": [SELF, "https://cdnjs.cloudflare.com"],
+        "frame-src": [SELF, "https://cloud.muelthaler.com", "https://www.canva.com"],
+        "frame-ancestors": [SELF, "https://cloud.muelthaler.com"],
+    },
+}
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 
 MEDIA_URL = '/media/'
