@@ -15,6 +15,13 @@ class Project:
 
 PROJECTS = [
     Project(
+        title="MBQuIDE: An Interactive Development Environment for Measurement-Based Quantum Computing",
+        subtitle="Open-Source Software",
+        abstract="MBQuIDE is an interactive graphical editor for measurement-based quantum computing (MBQC). Instead of writing quantum circuits gate by gate, MBQC computes by preparing an entangled graph state and measuring its qubits one after another. MBQuIDE lets users build and edit these graph states visually, assign measurement planes and angles, convert between MBQC patterns and ZX-diagrams, find flow, and simulate the resulting computation. It consists of a C++ backend that handles the graph algorithms, ZX-calculus and simulation through a REST API, and a React/TypeScript web frontend. Pre-built releases are available for Linux, macOS and Windows.",
+        image="mbquide.png",
+        link="https://github.com/mnm-team/mbquide",
+    ),
+    Project(
         title="Quantum Computing vs. Firewalls: When Complexity Saves the Horizon",
         subtitle="Seminar Paper",
         abstract="The black hole firewall paradox, proposed by Almheiri, Marolf, Polchinski, and Sully, exposes a fundamental tension between the principles of quantum mechanics and the classical description of black hole event horizons. In response, Harlow and Hayden argued that limitations arising from quantum computational complexity render the firewall paradox thought experiment operationally unrealizable, thereby offering a potential resolution of the paradox. This seminar paper is a pedagogical review and synthesis of these ideas rather than a presentation of new results, providing a clear and accessible introduction to the firewall paradox and the Harlow–Hayden complexity argument. The paper is aimed at readers with a background in quantum computing but limited familiarity with black hole physics.",
