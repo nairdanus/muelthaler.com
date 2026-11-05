@@ -129,7 +129,8 @@ CONTENT_SECURITY_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF, "data:"],
         "img-src": [SELF],
-        "script-src": [SELF],
+        "script-src": [SELF, "https://stats.muelthaler.com"],
+        "connect-src": [SELF, "https://stats.muelthaler.com"],
         "style-src": [SELF, "https://cdnjs.cloudflare.com"],
         "font-src": [SELF, "https://cdnjs.cloudflare.com"],
         "frame-src": [SELF, "https://cloud.muelthaler.com", "https://www.canva.com"],
